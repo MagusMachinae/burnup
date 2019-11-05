@@ -1,6 +1,8 @@
 (ns realworld.burnup.rest-api.api
   (:require [realworld.burnup.graph-database.interface :as database])
   (:require [compojure.core :refer [routes wrap-routes defroutes GET POST PUT DELETE ANY OPTIONS]]
+            [realworld.burnup.rest-api.handler :as h]
+            [realworld.burnup.rest-api.middleware :as m]
             [ring.logger.timbre :as logger]
             [ring.middleware.json :as js]
             [ring.middleware.keyword-params :as kp]
@@ -9,10 +11,18 @@
             [ring.middleware.params :as pr]))
 
 ;; A stand alone base example. Change to the right type of base.
-(defroutes
-  (OPTIONS "/**"          []h/options)
-  (GET     "/api/health"  []h/health)
-  (POST    "/api/users"))
+(defroutes public-routes
+  (OPTIONS "/**"                    [] h/options)
+  (GET     "/api/health"            [] h/health)
+  (POST    "/api/users/login"       [] h/login)
+  (POST    "api/users"              [] h/register)
+  (GET     "api/profiles/:username" [] h/profile)
+  ())
+
+
+(defroutes private-routes
+  (GET     "api/user"               [] h/current-user)
+  (PUT     "api/user"               [] h/update-user))
 
 (def ^:private app-routes
   (routes

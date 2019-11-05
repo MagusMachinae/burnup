@@ -10,7 +10,7 @@ You can also get in touch with the Polylith Team via our [forum](https://polylit
 
 <h1>BurnUp</h1>
 
-<p>BurnUp is a proof-of-concept/toy-model for a contracting/job site for the energy industry. The backend is written in Clojure using polylithic architecture and complies with the RealWorld API spec.
+<p>BurnUp is a proof-of-concept/toy-model for a contracting/job site for the energy industry. The backend is written in Clojure using polylithic architecture and complies with the RealWorld API spec. The app is largely built around the Compojure library, with the Luminus framework used sparingly.
 Because of the RealWorld spec, it can be paired with any similarly implemented front-end.
 However, for the purposes of this PoC, the front ends for mobile and desktop devices
 will be written in ClojureScript, targeting Native and React frameworks through wrappers. </p>
