@@ -12,17 +12,23 @@
 
 ;; A stand alone base example. Change to the right type of base.
 (defroutes public-routes
-  (OPTIONS "/**"                    [] h/options)
-  (GET     "/api/health"            [] h/health)
-  (POST    "/api/users/login"       [] h/login)
-  (POST    "api/users"              [] h/register)
-  (GET     "api/profiles/:username" [] h/profile)
-  ())
+  (OPTIONS "/**"                     [] h/options)
+  (GET     "/api/health"             [] h/health)
+  (POST    "/api/users/login"        [] h/login)
+  (POST    "/api/users"              [] h/register)
+  (GET     "/api/profiles/:username" [] h/profile))
+
 
 
 (defroutes private-routes
-  (GET     "api/user"               [] h/current-user)
-  (PUT     "api/user"               [] h/update-user))
+  (GET     "/api/user"               [] h/current-user)
+  (PUT     "/api/user"               [] h/update-user)
+  ())
+
+(defroutes other-routes
+  (ANY     "/**"                     [] h/other))
+
+
 
 (def ^:private app-routes
   (routes

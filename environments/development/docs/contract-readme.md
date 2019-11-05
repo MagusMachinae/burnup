@@ -1,0 +1,1 @@
+../../../components/contract/readme.md
