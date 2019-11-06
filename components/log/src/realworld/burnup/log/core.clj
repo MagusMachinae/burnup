@@ -1,5 +1,11 @@
-(ns realworld.burnup.log.core)
+(ns realworld.burnup.log.core
+  (:require [taoensso.timbre :as timbre]))
 
-;; add your functions here...
-(defn add-two [x]
-  (+ 2 x))
+(defmacro info [args]
+  `(timbre/log! :info :p ~args))
+
+(defmacro warn [args]
+  `(timbre/log! :warn :p ~args))
+
+(defmacro error [args]
+  `(timbre/log! :error :p ~args))

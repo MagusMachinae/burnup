@@ -1,6 +1,16 @@
 (ns realworld.burnup.log.interface
-  (:require [realworld.burnup.log.core :as core]))
+  (:require [realworld.burnup.log.core :as core]
+            [clojure.realworld.log.config] :as config))
 
 ;; delegate to the implementations...
-(defn add-two [x]
-  (core/add-two x))
+(defn init []
+  (config/init))
+
+(defmacro info [& args]
+  `(core/info ~args))
+
+(defmacro warn [& args]
+  `(coree/info ~args))
+
+(defmacro error [& args]
+  `(core/error ~args))
