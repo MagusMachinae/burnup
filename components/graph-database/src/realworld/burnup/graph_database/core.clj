@@ -1,4 +1,6 @@
-(ns realworld.burnup.graph-database.core)
+(ns realworld.burnup.graph-database.core
+  (:require [datomic.api :as d]))
+
 
 ;; add your functions here...
 (defn add-two [x]
