@@ -1,0 +1,3 @@
+# proposal component
+
+add documentation here...
