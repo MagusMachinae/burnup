@@ -19,11 +19,11 @@ will be written in ClojureScript, targeting Native and React frameworks through 
 <p> Frontends to be implemented once core systems of backend are functioning <p2>
 
 <h3> Installation </h3>
-<p> WIP </p>
+<p>  </p>
 
 <h4>Implementation Details</h4>
 <ul>
-  <li> Users: A user can either be a contractor or an organisation. While the implementation does not explicitly use inheritance, Clojure and Datomic are flexible and fine-grained enough to allow them to be distinct "classes" without complicating behaviours such as logging in. To expand on the example, on log-in the database is queried for all user nodes with a matching username-password pair, without needing to distinguish between the two types of user, and serves the relevant usertype-specific resources once the user type is checked after authentication. Components can inherit from each other like classes in a loose sense via dependencies.
+  <li> Users: A user can either be a contractor or an organisation. While the implementation does not explicitly use inheritance, Clojure and Datomic are flexible and fine-grained enough to allow them to be distinct "classes" without complicating behaviours such as logging in. To expand on the example, on log-in the database is queried for all user nodes with a matching username-password pair, without needing to distinguish between the two types of user, and serves the relevant usertype-specific resources once the user type is checked after authentication. Components can inherit from each other like classes in a loose sense via dependencies. Class hierarchy is also implemented in this fashion.
     <ul>
       <li> Contractor: Has a profile with employment details such as rate etc., may tender proposals to contracts. </li>
       <li> Organisation: Has a more limited profile with company contact details, may generate contracts. May be further expanded to distinguish between operators and service providers.</li>

@@ -1,7 +1,8 @@
 (ns realworld.burnup.graph-database.core
   (:import datomic.Util)
   (:require [clojure.java.io :as io]
-            [environ.core :refer env]))
+            [environ.core :refer env]
+            [datomic.api :as d]))
 
 
 ;; add your functions here...
@@ -10,7 +11,16 @@
     (env :database)
     "database.edn"))
 
-(defn- scratch-conn)
+(def db-uri-base "datomic:mem://")
+
+(defn- scratch-conn
+  "Create a connection to an anonymous, in memory
+database"
+  []
+  (let [uri (str db-uri-base (d/squuid))]
+    (d/delete-database uri)
+    (d/create-database uri)
+    (d/connect uri)))
 
 (defn read-all
   "Read all forms in f, where f is any resourced that
@@ -29,6 +39,13 @@ any resource that can be opened by io/reader"
              more)
       {:datoms n})))
 
-((defn db
-  [path]
-  {}))
+(defn load-data
+ [])
+
+(defn db
+  ([path]
+   {})
+  (db (db-path)))
+
+(defn db-exists? []
+  (let [db-file (io/file "database.edn")]))
