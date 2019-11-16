@@ -1,6 +1,7 @@
 (defproject realworld.burnup/rest-api "0.1"
   :description "A rest-api base."
   :dependencies [[realworld.burnup/interfaces "1.0"]
+                 [environ "1.1.0"]
                  [org.clojure/clojure "1.9.0"]
                  [compojure "1.6.0"]
                  [org.clojure/data.json "0.2.6"]
