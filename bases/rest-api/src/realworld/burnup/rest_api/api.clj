@@ -26,6 +26,7 @@
   (PUT     "/api/user"                              [] h/update-user)
   (POST    "/api/contracts/:contract"               [] h/create-contract)
   (PUT     "/api/contracts/:contract"               [] h/update-contract)
+  (DELETE  "/api/contracts/:contract"               [] h/retract-contract)
   (GET     "/api/contracts/:contract/proposals"     [] h/proposals)
   (PUT     "/api/contracts/:contract/proposals"     [] h/create-proposal)
   (POST    "/api/contracts/:contract/proposals/:id" [] h/update-proposal)
