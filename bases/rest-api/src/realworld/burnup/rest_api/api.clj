@@ -12,24 +12,29 @@
 
 ;; A stand alone base example. Change to the right type of base.
 (defroutes public-routes
-  (OPTIONS "/**"                              [] h/options)
-  (GET     "/api/health"                      [] h/health)
-  (POST    "/api/users/login"                 [] h/login)
-  (POST    "/api/users"                       [] h/register)
-  (GET     "/api/profiles/:username"          [] h/profile)
-  (GET     "/api/contracts"                   [] h/contracts))
+  (OPTIONS "/**"                                    [] h/options)
+  (GET     "/api/health"                            [] h/health)
+  (POST    "/api/users/login"                       [] h/login)
+  (POST    "/api/users"                             [] h/register)
+  (GET     "/api/profiles/:username"                [] h/profile)
+  (GET     "/api/contracts"                         [] h/contracts))
 
 
 
 (defroutes private-routes
-  (GET     "/api/user"                         [] h/current-user)
-  (PUT     "/api/user"                         [] h/update-user)
-  (POST    "api/contracts/:contract"           [] h/create-contract)
-  (PUT     "api/contracts/:contract"           [] h/update-contract)
-  (GET     "api/contracts/:contract/proposals" [] h/proposals))
+  (GET     "/api/user"                              [] h/current-user)
+  (PUT     "/api/user"                              [] h/update-user)
+  (POST    "/api/contracts/:contract"               [] h/create-contract)
+  (PUT     "/api/contracts/:contract"               [] h/update-contract)
+  (GET     "/api/contracts/:contract/proposals"     [] h/proposals)
+  (PUT     "/api/contracts/:contract/proposals"     [] h/create-proposal)
+  (POST    "/api/contracts/:contract/proposals/:id" [] h/update-proposal)
+  (DELETE  "/api/contracts/:contract/proposals/:id" [] h/retract-proposal)
+  ())
 
 (defroutes other-routes
-  (ANY     "/**"                     [] h/other))
+  (ANY     "/**"                                   [] h/other)
+  (ANY     "/api/db-out")                          [] h/dump-database)
 
 
 
