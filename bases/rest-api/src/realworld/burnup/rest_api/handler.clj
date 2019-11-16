@@ -65,3 +65,5 @@
     (let [[ok? res] (profile/fetch-profile auth-user username)]
       (handle (if ok? 200 404) res))
     (handle 422 {:errors {:username ["Invalid username."]}})))
+
+(defn h/dump-database)
