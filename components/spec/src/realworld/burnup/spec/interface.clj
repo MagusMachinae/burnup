@@ -2,5 +2,12 @@
   (:require [realworld.burnup.spec.core :as core]))
 
 ;; delegate to the implementations...
-(defn add-two [x]
-  (core/add-two x))
+(def username? core/username?)
+
+(def non-empty-string? core/non-empty-string?)
+
+(def email? core/email?)
+
+(def uri-string? core/uri-string?)
+
+(def password? core/password?)
